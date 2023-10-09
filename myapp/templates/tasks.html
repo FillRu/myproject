@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Tasks</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Add task</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <h2>{{ task.title }}</h2>
+            <p>{{ task.description }}</p>
+            <p>Done:{{ task.done }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
